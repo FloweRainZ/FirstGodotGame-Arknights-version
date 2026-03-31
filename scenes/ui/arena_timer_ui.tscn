@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c8g64ffjfvtga"]
+
+[ext_resource type="Script" uid="uid://jp5fenkkrvrg" path="res://scenes/ui/arena_timer_ui.gd" id="1_xxa1o"]
+
+[node name="ArenaTimerUI" type="CanvasLayer" unique_id=2060291808]
+script = ExtResource("1_xxa1o")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=651646297]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 4
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=435856151]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
+theme_override_constants/outline_size = 5
+text = "test"

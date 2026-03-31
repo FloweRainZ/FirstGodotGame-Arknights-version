@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://byncf1cefxdv1"]
+
+[ext_resource type="Script" uid="uid://c2ivcl530da17" path="res://scenes/ui/end_screen.gd" id="1_4ttpn"]
+[ext_resource type="AudioStream" uid="uid://dt5uvh0ymbwxi" path="res://assets/audio/jingles_victory.ogg" id="2_53v5j"]
+[ext_resource type="PackedScene" uid="uid://c6s5220u6xlly" path="res://scenes/ui/sound_button.tscn" id="2_n8r4t"]
+[ext_resource type="AudioStream" uid="uid://csjr2yuerhpvr" path="res://assets/audio/jingles_defeat.ogg" id="3_e4cmn"]
+
+[sub_resource type="Animation" id="Animation_eg2gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bd1lb"]
+resource_name = "in"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xpnye"]
+resource_name = "out"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ttpn"]
+_data = {
+&"RESET": SubResource("Animation_eg2gl"),
+&"in": SubResource("Animation_bd1lb"),
+&"out": SubResource("Animation_xpnye")
+}
+
+[node name="EndScreen" type="CanvasLayer" unique_id=1572654033]
+process_mode = 3
+script = ExtResource("1_4ttpn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1083147629]
+libraries/ = SubResource("AnimationLibrary_4ttpn")
+autoplay = &"in"
+
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1126511850]
+stream = ExtResource("2_53v5j")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=129298480]
+stream = ExtResource("3_e4cmn")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=974591751]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60784316, 0.29803923, 0.6392157, 0.3529412)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1557672655]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=653812125]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1147040996]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1023123153]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1156132101]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_colors/font_outline_color = Color(0.10702676, 0.12882471, 0.44523472, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=85842894]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BlueOutlineLabel"
+theme_override_colors/font_outline_color = Color(0.10702676, 0.12882471, 0.44523472, 1)
+theme_override_constants/outline_size = 8
+text = "You won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1305809651]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ContinueButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1460304305 instance=ExtResource("2_n8r4t")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1381442505 instance=ExtResource("2_n8r4t")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit to Menu"
