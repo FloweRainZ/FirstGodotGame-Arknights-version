@@ -1,0 +1,195 @@
+[gd_scene format=3 uid="uid://c8sv2ypod32yu"]
+
+[ext_resource type="Script" uid="uid://mb8ff7cs31xt" path="res://scenes/ability/tear_ability/tear_ability.gd" id="1_qi0gm"]
+[ext_resource type="Texture2D" uid="uid://c5htlplwnimqi" path="res://assets/particle.png" id="2_h3jdb"]
+[ext_resource type="Texture2D" uid="uid://b120elfjudtqg" path="res://scenes/ability/tear_ability/tear.png" id="3_qi0gm"]
+[ext_resource type="PackedScene" uid="uid://basiqqxrmqa38" path="res://scenes/component/hitbox_component.tscn" id="4_s86sh"]
+
+[sub_resource type="Animation" id="Animation_1311l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m0lxl"]
+resource_name = "default"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.35),
+"transitions": PackedFloat32Array(3.1383355, 1, 2.7320802, 1),
+"update": 0,
+"values": [Vector2(0, -96), Vector2(0, 0), Vector2(0, -6), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.45, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsum4"]
+_data = {
+&"RESET": SubResource("Animation_1311l"),
+&"default": SubResource("Animation_m0lxl")
+}
+
+[sub_resource type="Gradient" id="Gradient_m0lxl"]
+offsets = PackedFloat32Array(0, 0.5418719)
+colors = PackedColorArray(0.54509807, 0.60784316, 0.7058824, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vsum4"]
+gradient = SubResource("Gradient_m0lxl")
+
+[sub_resource type="Curve" id="Curve_t41ol"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1790393, 0.82022476), 0.0, 0.0, 0, 0, Vector2(0.70305675, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ew5gt"]
+curve = SubResource("Curve_t41ol")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_djtxh"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 250.0
+initial_velocity_max = 350.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1500.0001
+damping_max = 1750.0001
+scale_min = 0.099999994
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_ew5gt")
+color_initial_ramp = SubResource("GradientTexture1D_vsum4")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t41ol"]
+radius = 36.0
+
+[node name="TearAbility" type="Node2D" unique_id=434253581]
+script = ExtResource("1_qi0gm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1553122229]
+libraries/ = SubResource("AnimationLibrary_vsum4")
+autoplay = &"default"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1253367381]
+emitting = false
+amount = 20
+texture = ExtResource("2_h3jdb")
+lifetime = 0.35000000000000003
+one_shot = true
+explosiveness = 0.9
+fixed_fps = 0
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_djtxh")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1132990199]
+position = Vector2(0, -96)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=802323725]
+position = Vector2(0, -7)
+texture = ExtResource("3_qi0gm")
+
+[node name="HitboxComponent" parent="." unique_id=674856354 instance=ExtResource("4_s86sh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=430522130]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_t41ol")

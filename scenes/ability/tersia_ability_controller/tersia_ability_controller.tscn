@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dpdkrkf8xn2fm"]
+
+[ext_resource type="Script" uid="uid://dlacoemv111s4" path="res://scenes/ability/tersia_ability_controller/tersia_ability_controller.gd" id="1_whgnw"]
+[ext_resource type="PackedScene" uid="uid://c2tvxbh23wdxv" path="res://scenes/ability/tersia_ability/tersia_ability.tscn" id="2_i3ir2"]
+
+[node name="TersiaAbilityController" type="Node" unique_id=2044093755]
+script = ExtResource("1_whgnw")
+tersia_ability_scene = ExtResource("2_i3ir2")
+
+[node name="Timer" type="Timer" parent="." unique_id=1441107222]
+wait_time = 3.5
+autostart = true

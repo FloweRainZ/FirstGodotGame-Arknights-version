@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bgpnogeliedwo"]
+
+[ext_resource type="Script" uid="uid://dnl6abg0g6hki" path="res://scenes/ability/tear_ability_controller/tear_ability_controller.gd" id="1_xxmbc"]
+[ext_resource type="PackedScene" uid="uid://c8sv2ypod32yu" path="res://scenes/ability/tear_ability/tear_ability.tscn" id="2_3oo72"]
+
+[node name="TearAbilityController" type="Node" unique_id=50148613]
+script = ExtResource("1_xxmbc")
+tear_ability_scene = ExtResource("2_3oo72")
+
+[node name="Timer" type="Timer" parent="." unique_id=1084982788]
+wait_time = 2.0
+autostart = true
