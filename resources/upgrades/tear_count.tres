@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://bbfhatsfag302"]
+
+[ext_resource type="Script" uid="uid://b2a128jlsxpo2" path="res://resources/upgrades/ability_upgrade.gd" id="1_2e3qq"]
+
+[resource]
+script = ExtResource("1_2e3qq")
+id = "tear_count"
+max_quantity = 2
+name = "冰锥数量"
+description = "增加1个额外冰锥"
+metadata/_custom_type_script = "uid://b2a128jlsxpo2"

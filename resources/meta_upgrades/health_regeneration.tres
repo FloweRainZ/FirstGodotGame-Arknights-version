@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" format=3 uid="uid://bvpxsxjiyu65e"]
+
+[ext_resource type="Script" uid="uid://bs1u0jowusslm" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_6pjjw"]
+
+[resource]
+script = ExtResource("1_6pjjw")
+id = "health_regeneration"
+max_quantity = 3
+experience_cost = 100
+title = "生命回复"
+description = "每30秒回复一点生命（随等级递增"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" format=3 uid="uid://iy68nw573qyq"]
+
+[ext_resource type="Script" uid="uid://b2a128jlsxpo2" path="res://resources/upgrades/ability_upgrade.gd" id="1_pyxp1"]
+
+[resource]
+script = ExtResource("1_pyxp1")
+id = "sword_rate"
+max_quantity = 5
+name = "攻击速度-赤霄"
+description = "攻击速度增加10%"
